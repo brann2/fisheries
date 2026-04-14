@@ -1,6 +1,101 @@
+/* LOGIN PAGE */
+.login-bg {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #1e3a8a, #3b82f6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-center {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  background: #fff;
+  padding: 48px 38px 38px 38px;
+  border-radius: 18px;
+  box-shadow: 0 10px 32px rgba(30, 58, 138, 0.18);
+  min-width: 340px;
+  text-align: center;
+  position: relative;
+  animation: fadeIn 0.8s;
+}
+
+.login-logo {
+  margin-bottom: 18px;
+}
+
+.logo-icon {
+  font-size: 38px;
+  background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+  color: white;
+  border-radius: 50%;
+  padding: 10px 16px;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.12);
+}
+
+.login-card h2 {
+  margin-bottom: 22px;
+  color: #1e3a8a;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 12px 0;
+  border-radius: 8px;
+  border: 1.5px solid #cbd5e1;
+  font-size: 16px;
+  background: #f8fafc;
+  transition: border 0.2s;
+}
+.login-input:focus {
+  outline: none;
+  border: 1.5px solid #3b82f6;
+  background: #fff;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.login-btn:hover {
+  background: linear-gradient(90deg, #1e3a8a, #2563eb);
+  transform: translateY(-2px) scale(1.02);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   background: #f1f5f9;
 }
 
@@ -52,7 +147,7 @@ body {
   color: white;
   position: fixed;
   padding: 25px;
-  box-shadow: 4px 0 15px rgba(0,0,0,0.2);
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .sidebar h2 {
@@ -91,7 +186,7 @@ body {
   padding: 25px;
   background: white;
   border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
   position: relative;
   overflow: hidden;
