@@ -1,16 +1,101 @@
-/* LOGIN PAGE */
+/* ============================================
+   GLOBAL
+   ============================================ */
+* {
+  box-sizing: border-box;
+}
 
-/* LOGIN PAGE FINAL FIX */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f1f5f9;
+}
+
+/* ============================================
+   LOGIN PAGE
+   ============================================ */
 .login-bg {
   min-height: 100vh;
-  background: linear-gradient(120deg, #1e3a8a 60%, #3b82f6 100%);
+  background: linear-gradient(135deg, #0f2460 0%, #1a4fa8 50%, #0e7490 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  z-index: 1;
+  overflow: hidden;
 }
 
+/* Dekorasi gelembung */
+.login-bubbles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+}
+.b1 {
+  width: 220px;
+  height: 220px;
+  top: -60px;
+  left: -70px;
+}
+.b2 {
+  width: 140px;
+  height: 140px;
+  bottom: 40px;
+  right: -40px;
+}
+.b3 {
+  width: 70px;
+  height: 70px;
+  top: 80px;
+  right: 100px;
+}
+
+/* Ikan dekoratif */
+.login-fish-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.fish {
+  position: absolute;
+  font-size: 22px;
+  opacity: 0.12;
+}
+.f1 {
+  top: 30px;
+  left: 50px;
+}
+.f2 {
+  bottom: 70px;
+  left: 90px;
+}
+.f3 {
+  top: 90px;
+  right: 50px;
+}
+
+/* Gelombang bawah */
+.login-bg::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 90'%3E%3Cpath d='M0,45 C200,80 400,10 600,45 C800,80 1000,10 1200,45 L1200,90 L0,90 Z' fill='rgba(255,255,255,0.06)'/%3E%3C/svg%3E")
+    no-repeat bottom;
+  background-size: cover;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Tengah */
 .login-center {
   width: 100vw;
   height: 100vh;
@@ -21,186 +106,167 @@
   z-index: 2;
 }
 
+/* Card */
 .login-card {
-  background: rgba(255,255,255,0.98);
-  padding: 48px 38px 38px 38px;
-  border-radius: 18px;
-  box-shadow: 0 10px 32px rgba(30,58,138,0.18), 0 2px 8px rgba(59,130,246,0.10);
+  background: rgba(255, 255, 255, 0.97);
+  padding: 42px 38px 36px 38px;
+  border-radius: 20px;
+  box-shadow:
+    0 12px 48px rgba(15, 36, 96, 0.45),
+    0 2px 8px rgba(14, 116, 144, 0.2);
   min-width: 340px;
   max-width: 95vw;
   text-align: center;
   position: relative;
-  animation: fadeIn 0.8s;
-  border-top: 6px solid #2563eb;
+  animation: fadeInUp 0.8s ease both;
+  border-top: 5px solid #1d4ed8;
 }
 
+/* Logo */
 .login-logo {
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
-
 .logo-icon {
-  font-size: 38px;
-  background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+  font-size: 32px;
+  background: linear-gradient(135deg, #1e3a8a, #0ea5e9);
   color: white;
   border-radius: 50%;
-  padding: 10px 16px;
-  box-shadow: 0 2px 8px rgba(59,130,246,0.12);
-  display: inline-block;
-}
-
-.login-card h2 {
-  margin-bottom: 22px;
-  color: #1e3a8a;
-  font-weight: 700;
-  letter-spacing: 1px;
-  font-size: 1.5rem;
-}
-
-.login-input {
-  width: 100%;
-  padding: 12px 14px;
-  margin: 12px 0;
-  border-radius: 8px;
-  border: 1.5px solid #3b82f6;
-  font-size: 16px;
-  background: #f1f5fd;
-  transition: border 0.2s, background 0.2s;
-  color: #1e293b;
-}
-.login-input:focus {
-  outline: none;
-  border: 1.5px solid #1e3a8a;
-  background: #fff;
-}
-
-.login-btn {
-  width: 100%;
-  padding: 12px;
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  margin-top: 10px;
-  box-shadow: 0 2px 8px rgba(59,130,246,0.10);
-  transition: background 0.2s, transform 0.2s;
-  letter-spacing: 0.5px;
-}
-.login-btn:hover {
-  background: linear-gradient(90deg, #1e3a8a, #2563eb);
-  transform: translateY(-2px) scale(1.02);
-}
-
-@media (max-width: 500px) {
-  .login-card {
-    min-width: 90vw;
-    padding: 24px 8px 18px 8px;
-  }
-  .login-center {
-    padding: 0;
-  }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.login-center {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
+  width: 64px;
+  height: 64px;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(14, 165, 233, 0.4);
 }
 
-.login-card {
-  background: #fff;
-  padding: 48px 38px 38px 38px;
-  border-radius: 18px;
-  box-shadow: 0 10px 32px rgba(30, 58, 138, 0.18);
-  min-width: 340px;
-  text-align: center;
-  position: relative;
-  animation: fadeIn 0.8s;
-}
-
-.login-logo {
-  margin-bottom: 18px;
-}
-
-.logo-icon {
-  font-size: 38px;
-  background: linear-gradient(90deg, #1e3a8a, #3b82f6);
-  color: white;
-  border-radius: 50%;
-  padding: 10px 16px;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.12);
-}
-
+/* Judul */
 .login-card h2 {
-  margin-bottom: 22px;
+  margin: 0 0 4px 0;
   color: #1e3a8a;
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: 1.45rem;
 }
 
+/* Subtitle */
+.login-subtitle {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0 0 24px 0;
+}
+
+/* Input wrapper (ikon + field) */
+.input-wrap {
+  position: relative;
+  margin-bottom: 14px;
+  text-align: left;
+}
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  pointer-events: none;
+}
+
+/* Input */
 .login-input {
   width: 100%;
-  padding: 12px 14px;
-  margin: 12px 0;
-  border-radius: 8px;
+  padding: 13px 14px 13px 44px;
+  border-radius: 10px;
   border: 1.5px solid #cbd5e1;
-  font-size: 16px;
+  font-size: 15px;
   background: #f8fafc;
-  transition: border 0.2s;
+  color: #1e293b;
+  transition:
+    border 0.2s,
+    background 0.2s,
+    box-shadow 0.2s;
 }
 .login-input:focus {
   outline: none;
-  border: 1.5px solid #3b82f6;
-  background: #fff;
+  border-color: #2563eb;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
 
+/* Tombol login */
 .login-btn {
   width: 100%;
-  padding: 12px;
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  padding: 13px;
+  background: linear-gradient(90deg, #1e3a8a, #2563eb);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  margin-top: 10px;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
   transition:
-    background 0.2s,
-    transform 0.2s;
+    transform 0.15s,
+    box-shadow 0.15s,
+    background 0.2s;
 }
 .login-btn:hover {
-  background: linear-gradient(90deg, #1e3a8a, #2563eb);
-  transform: translateY(-2px) scale(1.02);
+  background: linear-gradient(90deg, #163070, #1d4ed8);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+}
+.login-btn:active {
+  transform: scale(0.98);
 }
 
-@keyframes fadeIn {
+/* Divider */
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 22px 0 0;
+}
+.login-divider hr {
+  flex: 1;
+  border: none;
+  border-top: 1px solid #e2e8f0;
+}
+.login-divider span {
+  font-size: 11px;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+/* Footer kecil */
+.login-footer {
+  font-size: 11.5px;
+  color: #94a3b8;
+  margin: 14px 0 0;
+}
+
+/* Animasi */
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(32px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-body {
-  margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background: #f1f5f9;
+
+/* Responsive */
+@media (max-width: 500px) {
+  .login-card {
+    min-width: 90vw;
+    padding: 28px 16px 22px 16px;
+  }
 }
 
-/* NAVBAR */
+/* ============================================
+   NAVBAR
+   ============================================ */
 .navbar {
   background: linear-gradient(90deg, #1e3a8a, #3b82f6);
   padding: 15px;
@@ -209,7 +275,9 @@ body {
   font-weight: bold;
 }
 
-/* HERO */
+/* ============================================
+   HERO
+   ============================================ */
 .hero {
   height: 90vh;
   display: flex;
@@ -220,16 +288,13 @@ body {
   color: white;
   text-align: center;
 }
-
 .hero h1 {
   font-size: 50px;
   margin: 0;
 }
-
 .hero p {
   opacity: 0.8;
 }
-
 .btn {
   margin-top: 20px;
   padding: 12px 30px;
@@ -240,7 +305,9 @@ body {
   font-weight: bold;
 }
 
-/* DASHBOARD */
+/* ============================================
+   DASHBOARD / SIDEBAR
+   ============================================ */
 .sidebar {
   width: 240px;
   height: 100vh;
@@ -250,13 +317,11 @@ body {
   padding: 25px;
   box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
 }
-
 .sidebar h2 {
   margin-bottom: 30px;
   font-size: 22px;
   letter-spacing: 1px;
 }
-
 .sidebar a {
   display: block;
   padding: 12px;
@@ -266,20 +331,23 @@ body {
   border-radius: 8px;
   transition: 0.3s;
 }
-
 .sidebar a:hover {
   background: #3b82f6;
   color: white;
   transform: translateX(5px);
 }
 
-/* CONTENT */
+/* ============================================
+   CONTENT
+   ============================================ */
 .content {
   margin-left: 260px;
   padding: 40px;
 }
 
-/* CARD */
+/* ============================================
+   CARD (DASHBOARD)
+   ============================================ */
 .card {
   display: inline-block;
   width: 220px;
@@ -292,12 +360,9 @@ body {
   position: relative;
   overflow: hidden;
 }
-
 .card:hover {
   transform: translateY(-5px) scale(1.03);
 }
-
-/* garis atas card (premium effect) */
 .card::before {
   content: "";
   position: absolute;
@@ -307,12 +372,10 @@ body {
   height: 5px;
   background: linear-gradient(90deg, #3b82f6, #06b6d4);
 }
-
 .card h3 {
   margin: 0;
   color: #1e293b;
 }
-
 .card p {
   font-size: 22px;
   font-weight: bold;
@@ -320,16 +383,16 @@ body {
   margin-top: 10px;
 }
 
-/* RESPONSIVE */
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 @media (max-width: 768px) {
   .sidebar {
     width: 200px;
   }
-
   .content {
     margin-left: 210px;
   }
-
   .card {
     width: 100%;
   }
