@@ -31,13 +31,13 @@ header("X-Content-Type-Options: nosniff");
 // ============================================================
 // DATABASE (ganti sesuai konfigurasi Anda)
 // ============================================================
-$host = 'localhost';
-$db   = 'fisheries_db';
+$host = '157.10.160.42';
+$db   = 'finalboss';
 $user = 'root';
-$pass = '';
+$pass = 'Manado@2026';
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
+    $pdo = new PDO("mysql:host=$host;port=3306;dbname=$db;charset=utf8", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     // Jika DB belum ada, gunakan data dummy
