@@ -1,9 +1,9 @@
 <?php
 session_start();
-include '../config/csrf.php';
+require_once __DIR__ . '/../config/csrf.php';
 csrf_verify();
-include '../config/koneksi.php';
-include '../config/logger.php';
+require_once __DIR__ . '/../config/koneksi.php';
+require_once __DIR__ . '/../config/logger.php';
 
 // Proteksi login
 if (!isset($_SESSION['login'])) {
@@ -17,7 +17,7 @@ if ($_SESSION['role'] !== 'admin') {
     exit;
 }
 
-$user_id  = (int) $_SESSION['user_id'];
+$user_id  = (int) ($_SESSION['user_id'] ?? 0);
 $nama_ikan = trim($_POST['nama_ikan'] ?? '');
 $jenis     = trim($_POST['jenis'] ?? '');
 $berat_ton = $_POST['berat_ton'] ?? 0;

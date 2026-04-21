@@ -35,7 +35,24 @@ header("X-Content-Type-Options: nosniff");
 // ============================================================
 // KONEKSI DATABASE (mysqli - include dari config)
 // ============================================================
-include 'config/koneksi.php';
+require_once __DIR__ . '/config/csrf.php';
+require_once __DIR__ . '/config/koneksi.php';
+
+if (!isset($_SESSION['user_id']) && !empty($username)) {
+    $stmt_user = mysqli_prepare($conn, "SELECT id FROM users WHERE username=? LIMIT 1");
+    if ($stmt_user) {
+        mysqli_stmt_bind_param($stmt_user, "s", $username);
+        mysqli_stmt_execute($stmt_user);
+        $result_user = mysqli_stmt_get_result($stmt_user);
+        $row_user = mysqli_fetch_assoc($result_user);
+
+        if ($row_user && isset($row_user['id'])) {
+            $_SESSION['user_id'] = (int) $row_user['id'];
+        }
+
+        mysqli_stmt_close($stmt_user);
+    }
+}
 
 // ============================================================
 // HELPER
@@ -421,6 +438,7 @@ body {
         <button class="modal-close" onclick="closeModal('modal-add-ikan')">x</button>
         <h3>Tambah Data Ikan</h3>
         <form method="POST" action="actions/tambah_ikan.php">
+          <?php csrf_field(); ?>
           <div class="form-group">
             <label>Nama Ikan</label>
             <input type="text" name="nama_ikan" placeholder="Contoh: Tuna Sirip Kuning" required>
@@ -461,6 +479,7 @@ body {
         <button class="modal-close" onclick="closeModal('modal-edit-ikan')">x</button>
         <h3>Edit Data Ikan</h3>
         <form method="POST" action="actions/edit_ikan.php">
+          <?php csrf_field(); ?>
           <input type="hidden" name="id" id="edit-ikan-id">
           <div class="form-group">
             <label>Nama Ikan</label>
@@ -504,6 +523,7 @@ body {
         <div class="btn-row">
           <button class="btn-cancel" onclick="closeModal('modal-del-ikan')">Batal</button>
           <form method="POST" action="actions/hapus_ikan.php" style="flex:1;">
+            <?php csrf_field(); ?>
             <input type="hidden" name="id" id="del-ikan-id">
             <button type="submit" class="btn-confirm-del">Hapus</button>
           </form>
@@ -574,6 +594,7 @@ body {
         <button class="modal-close" onclick="closeModal('modal-add-nelayan')">x</button>
         <h3>Tambah Data Nelayan</h3>
         <form method="POST" action="actions/tambah_nelayan.php">
+          <?php csrf_field(); ?>
           <div class="form-group">
             <label>Nama Nelayan</label>
             <input type="text" name="nama" placeholder="Nama lengkap" required>
@@ -608,6 +629,7 @@ body {
         <button class="modal-close" onclick="closeModal('modal-edit-nelayan')">x</button>
         <h3>Edit Data Nelayan</h3>
         <form method="POST" action="actions/edit_nelayan.php">
+          <?php csrf_field(); ?>
           <input type="hidden" name="id" id="edit-nelayan-id">
           <div class="form-group">
             <label>Nama Nelayan</label>
@@ -646,6 +668,7 @@ body {
         <div class="btn-row">
           <button class="btn-cancel" onclick="closeModal('modal-del-nelayan')">Batal</button>
           <form method="POST" action="actions/hapus_nelayan.php" style="flex:1;">
+            <?php csrf_field(); ?>
             <input type="hidden" name="id" id="del-nelayan-id">
             <button type="submit" class="btn-confirm-del">Hapus</button>
           </form>
@@ -719,6 +742,7 @@ body {
         <button class="modal-close" onclick="closeModal('modal-add-distribusi')">x</button>
         <h3>Tambah Data Distribusi</h3>
         <form method="POST" action="actions/tambah_distribusi.php">
+          <?php csrf_field(); ?>
           <div class="form-group">
             <label>Tujuan</label>
             <input type="text" name="tujuan" placeholder="Kota tujuan" required>
@@ -754,6 +778,7 @@ body {
         <button class="modal-close" onclick="closeModal('modal-edit-distribusi')">x</button>
         <h3>Edit Data Distribusi</h3>
         <form method="POST" action="actions/edit_distribusi.php">
+          <?php csrf_field(); ?>
           <input type="hidden" name="id" id="edit-dist-id">
           <div class="form-group">
             <label>Tujuan</label>
@@ -793,6 +818,7 @@ body {
         <div class="btn-row">
           <button class="btn-cancel" onclick="closeModal('modal-del-distribusi')">Batal</button>
           <form method="POST" action="actions/hapus_distribusi.php" style="flex:1;">
+            <?php csrf_field(); ?>
             <input type="hidden" name="id" id="del-distribusi-id">
             <button type="submit" class="btn-confirm-del">Hapus</button>
           </form>

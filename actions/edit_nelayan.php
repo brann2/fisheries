@@ -1,9 +1,9 @@
 <?php
 session_start();
-include '../config/csrf.php';
+require_once __DIR__ . '/../config/csrf.php';
 csrf_verify();
-include '../config/koneksi.php';
-include '../config/logger.php';
+require_once __DIR__ . '/../config/koneksi.php';
+require_once __DIR__ . '/../config/logger.php';
 
 if (!isset($_SESSION['login'])) {
     header("Location: ../login.php");
@@ -15,7 +15,7 @@ if ($_SESSION['role'] !== 'admin') {
     exit;
 }
 
-$user_id   = (int) $_SESSION['user_id'];
+$user_id   = (int) ($_SESSION['user_id'] ?? 0);
 $id        = (int) ($_POST['id'] ?? 0);
 $nama      = trim($_POST['nama'] ?? '');
 $alamat    = trim($_POST['alamat'] ?? '');

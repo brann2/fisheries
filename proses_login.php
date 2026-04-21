@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'koneksi.php';
+require_once __DIR__ . '/config/koneksi.php';
 
 // CSRF
 if (!isset($_POST['csrf']) || $_POST['csrf'] !== $_SESSION['csrf']) {
@@ -22,6 +22,7 @@ if ($user && password_verify($password, $user['password'])) {
     session_regenerate_id(true);
 
     $_SESSION['login'] = true;
+    $_SESSION['user_id'] = isset($user['id']) ? (int) $user['id'] : 0;
     $_SESSION['username'] = $user['username'];
     $_SESSION['role'] = $user['role'];
 
