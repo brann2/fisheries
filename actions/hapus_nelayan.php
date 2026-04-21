@@ -1,9 +1,6 @@
 <?php
 session_start();
-include '../config/csrf.php';
-csrf_verify();
-include '../config/koneksi.php';
-include '../config/logger.php';
+include '../../config/koneksi.php';
 
 if (!isset($_SESSION['login'])) {
     header("Location: ../login.php");
@@ -33,7 +30,6 @@ $stmt = $conn->prepare("DELETE FROM data_nelayan WHERE id=?");
 $stmt->bind_param("i", $id);
 
 if ($stmt->execute()) {
-    write_log($conn, 'HAPUS_NELAYAN', $user_id, "id={$id} nama={$nama_log}");
     header("Location: ../dashboard.php?page=nelayan&success=3");
     exit;
 } else {
