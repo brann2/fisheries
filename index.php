@@ -6,7 +6,7 @@
 <body>
 
 <div class="navbar">
-  🌊 Fisheries Sulawesi Utara Airmadidi
+  🌊 Fisheries Sulawesi Utara Manado
 </div>
 
 <div class="hero">
