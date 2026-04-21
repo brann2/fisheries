@@ -613,7 +613,8 @@ body {
       </div>
       <div class="card">
         <h3>👨‍🌾 Nelayan Aktif</h3>
-        <p><?= count(array_filter($nelayan_list, fn($n) => $n['status']==='Aktif')) ?></p>
+        <?php $aktif_count = 0; foreach ($nelayan_list as $_n) { if ($_n['status'] === 'Aktif') $aktif_count++; } ?>
+        <p><?= $aktif_count ?></p>
       </div>
       <div class="card">
         <h3>🚚 Distribusi</h3>
@@ -977,11 +978,13 @@ body {
             <td><?= clean($dist['tanggal']) ?></td>
             <td>
               <?php
-                $bc = match($dist['status']) {
-                  'Terkirim' => 'badge-green',
-                  'Proses'   => 'badge-blue',
-                  default    => 'badge-yellow'
-                };
+                if ($dist['status'] === 'Terkirim') {
+                    $bc = 'badge-green';
+                } elseif ($dist['status'] === 'Proses') {
+                    $bc = 'badge-blue';
+                } else {
+                    $bc = 'badge-yellow';
+                }
               ?>
               <span class="badge <?= $bc ?>"><?= clean($dist['status']) ?></span>
             </td>
