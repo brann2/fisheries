@@ -18,3 +18,16 @@
 2026-03-31 19:34:41 ACCESS DENIED (CONFIG): user
 2026-03-31 19:34:42 ACCESS DENIED (CONFIG): user
 2026-03-31 19:50:41 LOGOUT: user
+2026-04-21 07:43:39 LOGIN SUCCESS: admin
+2026-04-21 07:43:53 [TAMBAH_IKAN] user_id=1 nama=gibe jenis=Pelagis Besar berat=0.04ton harga=150000
+2026-04-21 07:43:57 LOGOUT: admin
+2026-04-21 07:44:03 LOGIN SUCCESS: user
+2026-04-21 07:44:07 LOGOUT: user
+2026-04-21 07:44:12 LOGIN SUCCESS: admin
+2026-04-21 07:44:33 [EDIT_IKAN] user_id=1 id=1 nama=gibe2 jenis=Pelagis Besar berat=0.04ton
+2026-04-21 07:44:53 [EDIT_IKAN] user_id=1 id=1 nama=gibe2 jenis=Pelagis Besar berat=0.04ton
+2026-04-21 07:55:55 [HAPUS_IKAN] user_id=1 id=1 nama=gibe2
+2026-04-21 07:56:19 [TAMBAH_NELAYAN] user_id=1 nama=natan kapal=zenx kapasitas=10ton
+2026-04-21 07:56:24 [HAPUS_NELAYAN] user_id=1 id=1 nama=natan
+2026-04-21 07:56:58 LOGOUT: admin
+2026-04-22 13:50:32 LOGIN SUCCESS: admin
