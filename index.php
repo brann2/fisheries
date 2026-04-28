@@ -6,7 +6,7 @@
 <body>
 
 <div class="navbar">
-  🌊 Fisheries Sulut
+  🌊 Luturmas Brandon Prince
 </div>
 
 <div class="hero">
