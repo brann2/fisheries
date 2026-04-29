@@ -6,7 +6,7 @@
 <body>
 
 <div class="navbar">
-  🌊 Smart Fisheries Manado
+  🌊 Smart Fisheries Airmadidi
 </div>
 
 <div class="hero">
