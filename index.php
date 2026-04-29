@@ -6,7 +6,7 @@
 <body>
 
 <div class="navbar">
-  🌊 Luturmas Brandon Prince
+  🌊 Smart Fisheries Manado
 </div>
 
 <div class="hero">
