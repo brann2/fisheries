@@ -6,8 +6,7 @@
 <body>
 
 <div class="navbar">
-  🌊 Smart Fisheries Airmadidi
-</div>
+  🌊 Smart Fisheries Agape2</div>
 
 <div class="hero">
   <h1>Smart Fisheries System</h1>
