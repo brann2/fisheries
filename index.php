@@ -9,7 +9,7 @@
   🌊 Smart Fisheries Agape2</div>
 
 <div class="hero">
-  <h1>Smart Fisheries System</h1>
+  <h1>Luturmas Brandon Prince/h1>
   <p>Monitoring  tangkapan & distribusi ikan secara digital</p>
   <a href="login.php" class="btn">Masuk Dashboard</a>
 </div>
